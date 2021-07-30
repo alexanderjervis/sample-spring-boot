@@ -2,7 +2,7 @@ stages:
 - stage: Compile
   jobs:
   - job: Compile
-    container: <Probably a gradle container here>
+    container: ubuntu:latest
     steps:
     - script: chmod +x gradlew && ./gradlew build jacocoTestReport
 - stage: SonarQube
@@ -20,4 +20,5 @@ stages:
         containerRegistry: 'alex-docker' #service connection name
         repository: 'alexanderjervis/sample-spring-boot' #dockerhub repository name
         dockerfile: '**/Dockerfile' #docker file path
-        imageTag: ${{ variables['Build.BuildId'] }} #docker image tag
+        imageTag: ${{ variables['Build.BuildId'] }}
+          #docker image tag

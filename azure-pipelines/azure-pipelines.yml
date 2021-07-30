@@ -20,4 +20,4 @@ stages:
         containerRegistry: 'alex-docker' #service connection name
         repository: 'alexanderjervis/sample-spring-boot' #dockerhub repository name
         dockerfile: '**/Dockerfile' #docker file path
-        tags: ${{ variables['Build.BuildId'] }} #docker image tag
+        imageTag: ${{ variables['Build.BuildId'] }} #docker image tag

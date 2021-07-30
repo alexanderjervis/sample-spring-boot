@@ -1,0 +1,17 @@
+parameters:
+  - name: 'containerRegistry' #service connection name
+    type: string
+  - name: 'repository' #dockerhub repository name
+    type: string
+  - name: 'dockerfile' #docker file path
+    type: string
+  - name: 'imageTag' #docker image tag
+    type: string
+steps:
+  - task: Docker@2
+    inputs:
+      containerRegistry: '${{ parameters.containerRegistry }}'
+      repository: '${{ parameters.repository }}'
+      command: 'buildAndPush'
+      Dockerfile: '${{ parameters.dockerfile }}'
+      tags: '${{ parameters.imageTag }}'

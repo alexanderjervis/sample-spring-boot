@@ -3,7 +3,7 @@ trigger:
 pr:
   - master
 pool:
-  vmImage: ubuntu:latest
+  vmImage: gradle:latest
 stages:
 - stage: Compile
   jobs:

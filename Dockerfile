@@ -1,2 +1,2 @@
-FROM openjdk:11-jdk
+FROM gradle
 CMD ["java", "-jar", "app.jar"]

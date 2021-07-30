@@ -15,6 +15,9 @@ stages:
   jobs:
   - job: DockerBuildPush
     steps:
-    - script: |
-        echo "Docker Build"
-        echo "Docker Push"
+    - template: docker-template.yml
+      parameters:
+        containerRegistry: 'alex-docker' #service connection name
+        repository: 'alexanderjervis/sample-spring-boot' #dockerhub repository name
+        dockerfile: '**/Dockerfile' #docker file path
+        tags: '$(Build.BuildId)' #docker image tag

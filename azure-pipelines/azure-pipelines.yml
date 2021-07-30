@@ -2,12 +2,12 @@ trigger:
   - master
 pr:
   - master
-pool:
-  vmImage: gradle:latest
+
 stages:
 - stage: Compile
   jobs:
   - job: Compile
+    container: gradle:latest
     steps:
     - script: chmod +x gradlew && ./gradlew build jacocoTestReport
 - stage: SonarQube

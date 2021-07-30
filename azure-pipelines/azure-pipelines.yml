@@ -9,8 +9,11 @@ stages:
   jobs:
   - job: Sonarscan
     steps:
-    - script: |
-        echo "Sonarqube Integration"
+    - template: sonar-template.yml
+      parameters:
+        sonarQube: 'alex-sonar' #service connection name
+        projectKey: 'alexanderjervis_sample-spring-boot' #sonar project key
+        projectName: 'sample-spring-boot' #sonar project name
 - stage: DockerBuildPush
   jobs:
   - job: DockerBuildPush

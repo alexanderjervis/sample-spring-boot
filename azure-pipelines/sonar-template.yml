@@ -1,0 +1,16 @@
+parameters:
+  - name: 'sonarQube' #service connection name
+    type: string
+  - name: 'projectKey' #sonar project key
+    type: string
+  - name: 'projectName' #sonar project name
+    type: string
+steps:
+  - task: SonarQubePrepare@4
+    inputs:
+      SonarQube: '${{ parameters.sonarQube }}'
+      scannerMode: 'MSBuild'
+      projectKey: '${{ parameters.projectKey }}'
+      projectName: '${{ parameters.projectName }}'
+  - task: SonarQubeAnalyze@4
+      
